@@ -21,7 +21,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH ='my_model.h5'
+MODEL_PATH ='covidpredictor.h5'
 
 # Load your trained model
 model = load_model(MODEL_PATH)
@@ -48,7 +48,7 @@ def exotic():
 
 
 def model_predict(img_path, model):
-    img = image.load_img(img_path, target_size=(64, 64))
+    img = image.load_img(img_path, target_size=(224, 224))
 
     # Preprocessing the image
     x = image.img_to_array(img)
